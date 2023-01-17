@@ -41,7 +41,7 @@ class DirectoryHandler extends AbstractHandler
             }
             $this->local(
                 sprintf(
-                    'rsync -e "ssh -p %d" -rzd %s %s@%s:%s %s',
+                    'rsync -e "ssh -p %d" -rzad %s %s@%s:%s %s',
                     $this->port,
                     trim($exclude),
                     $this->user,
