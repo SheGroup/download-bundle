@@ -26,6 +26,9 @@ abstract class AbstractHandler
     /** @var string */
     protected $host;
 
+    /** @var string */
+    protected $port;
+
     /** @var LoggerInterface */
     protected $logger;
 
@@ -98,7 +101,7 @@ abstract class AbstractHandler
      */
     protected function remote(string $cmd)
     {
-        $cmd = sprintf('ssh %s@%s "%s"', $this->user, $this->host, $cmd);
+        $cmd = sprintf('ssh -p %d %s@%s "%s"', $this->port, $this->user, $this->host, $cmd);
         $this->local($cmd);
     }
 }

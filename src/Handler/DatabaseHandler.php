@@ -37,6 +37,7 @@ class DatabaseHandler extends AbstractHandler
     public function __construct(
         string $user,
         string $host,
+        int $port,
         Database $remote,
         Database $local,
         string $directory,
@@ -45,6 +46,7 @@ class DatabaseHandler extends AbstractHandler
     ) {
         $this->user = $user;
         $this->host = $host;
+        $this->port = $port;
         $this->remote = $remote;
         $this->local = $local;
         $this->directory = $directory;
@@ -90,7 +92,7 @@ class DatabaseHandler extends AbstractHandler
             $this->remote($sql);
         }
 
-        $this->local(sprintf('scp %s@%s:%s %s', $this->user, $this->host, $temporalFile, $databaseFileWithTime));
+        $this->local(sprintf('scp -P %d %s@%s:%s %s', $this->port, $this->user, $this->host, $temporalFile, $databaseFileWithTime));
         $this->local(sprintf('cp %s %s', $databaseFileWithTime, $databaseFile));
         $this->remote(sprintf('rm %s', $temporalFile));
 

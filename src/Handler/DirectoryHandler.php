@@ -23,10 +23,11 @@ class DirectoryHandler extends AbstractHandler
     /**
      * @param array $directories
      */
-    public function __construct(string $user, string $host, array $directories)
+    public function __construct(string $user, string $host, int $port, array $directories)
     {
         $this->user = $user;
         $this->host = $host;
+        $this->port = $port;
         $this->directories = $directories;
     }
 
@@ -40,7 +41,8 @@ class DirectoryHandler extends AbstractHandler
             }
             $this->local(
                 sprintf(
-                    'rsync -rzd %s %s@%s:%s %s',
+                    'rsync -e "ssh -p %d" -rzd %s %s@%s:%s %s',
+                    $this->port,
                     trim($exclude),
                     $this->user,
                     $this->host,

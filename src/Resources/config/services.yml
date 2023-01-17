@@ -26,6 +26,7 @@ services:
     arguments:
       - '%shegroup.download.user%'
       - '%shegroup.download.host%'
+      - '%shegroup.download.port%'
       - '@shegroup.download.model.database.remote'
       - '@shegroup.download.model.database.local'
       - '%shegroup.download.database.directory%'

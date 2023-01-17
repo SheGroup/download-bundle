@@ -35,6 +35,7 @@ class DownloadExtension extends Extension
 
         $container->setParameter('shegroup.download.user', $config['user']);
         $container->setParameter('shegroup.download.host', $config['host']);
+        $container->setParameter('shegroup.download.port', $config['port']);
         $container->setParameter('shegroup.download.database.directory', $config['database']['directory']);
         $container->setParameter('shegroup.download.database.remote', $config['database']['remote']);
         $container->setParameter('shegroup.download.database.local', $config['database']['local']);
