@@ -11,9 +11,9 @@
  * @author Daniel González <daniel@desarrolla2.com>
  */
 
-namespace Desarrolla2\DownloadBundle\Handler;
+namespace SheGroup\DownloadBundle\Handler;
 
-use Desarrolla2\DownloadBundle\Model\Database;
+use SheGroup\DownloadBundle\Model\Database;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Finder\Finder;
 

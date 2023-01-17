@@ -11,7 +11,7 @@
  * @author Daniel González <daniel@desarrolla2.com>
  */
 
-namespace Desarrolla2\DownloadBundle\Command;
+namespace SheGroup\DownloadBundle\Command;
 
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Logger\ConsoleLogger;
@@ -30,7 +30,7 @@ class DownloadCommand extends AbstractCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         if (!$input->getOption('avoid-database-download')) {
-            $handler = $this->container->get('desarrolla2_download.handler.database_handler');
+            $handler = $this->container->get('shegroup.download.handler.database_handler');
             $handler->setLogger(new ConsoleLogger($output));
             $output->writeln(' - downloading database');
             $handler->download();
@@ -44,7 +44,7 @@ class DownloadCommand extends AbstractCommand
             $output->writeln(sprintf(' - done. %s databases deleted', $totalDeleted));
         }
         if (!$input->getOption('avoid-directories-download')) {
-            $handler = $this->container->get('desarrolla2_download.handler.directory_handler');
+            $handler = $this->container->get('shegroup.download.handler.directory_handler');
             $handler->setLogger(new ConsoleLogger($output));
             $output->writeln(' - downloading directories');
             $handler->download();

@@ -11,7 +11,7 @@
  * @author Daniel González <daniel@desarrolla2.com>
  */
 
-namespace Desarrolla2\DownloadBundle\DependencyInjection;
+namespace SheGroup\DownloadBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -33,18 +33,18 @@ class DownloadExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
-        $container->setParameter('desarrolla2_download.user', $config['user']);
-        $container->setParameter('desarrolla2_download.host', $config['host']);
-        $container->setParameter('desarrolla2_download.database.directory', $config['database']['directory']);
-        $container->setParameter('desarrolla2_download.database.remote', $config['database']['remote']);
-        $container->setParameter('desarrolla2_download.database.local', $config['database']['local']);
-        $container->setParameter('desarrolla2_download.database.max_local_db', $config['database']['max_local_db']);
-        $container->setParameter('desarrolla2_download.database.only_structure', $config['database']['only_structure']);
-        $container->setParameter('desarrolla2_download.directories', $config['directories']);
-        $container->setParameter('desarrolla2_download.timeout', 300);
+        $container->setParameter('shegroup.download.user', $config['user']);
+        $container->setParameter('shegroup.download.host', $config['host']);
+        $container->setParameter('shegroup.download.database.directory', $config['database']['directory']);
+        $container->setParameter('shegroup.download.database.remote', $config['database']['remote']);
+        $container->setParameter('shegroup.download.database.local', $config['database']['local']);
+        $container->setParameter('shegroup.download.database.max_local_db', $config['database']['max_local_db']);
+        $container->setParameter('shegroup.download.database.only_structure', $config['database']['only_structure']);
+        $container->setParameter('shegroup.download.directories', $config['directories']);
+        $container->setParameter('shegroup.download.timeout', 300);
 
         if ($config['timeout']) {
-            $container->setParameter('desarrolla2_download.timeout', $config['timeout']);
+            $container->setParameter('shegroup.download.timeout', $config['timeout']);
         }
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));

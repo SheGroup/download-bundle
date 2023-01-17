@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="desarrolla2 download bundle" basedir=".">
+<project name="she group download bundle" basedir=".">
 
     <target name="cs" description="">
         <exec executable="./vendor/bin/php-cs-fixer">

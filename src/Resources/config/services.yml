@@ -1,66 +1,66 @@
 services:
 
-  desarrolla2_download.factory.database_factory:
-    class: Desarrolla2\DownloadBundle\Factory\DatabaseFactory
-    arguments: ['%desarrolla2_download.database.remote%','%desarrolla2_download.database.local%']
+  shegroup.download.factory.database_factory:
+    class: SheGroup\DownloadBundle\Factory\DatabaseFactory
+    arguments: ['%shegroup.download.database.remote%','%shegroup.download.database.local%']
 
-  desarrolla2_download.factory.directory_factory:
-    class: Desarrolla2\DownloadBundle\Factory\DirectoryFactory
-    arguments: ['%desarrolla2_download.directories%']
+  shegroup.download.factory.directory_factory:
+    class: SheGroup\DownloadBundle\Factory\DirectoryFactory
+    arguments: ['%shegroup.download.directories%']
 
-  desarrolla2_download.model.database.remote:
-    class: Desarrolla2\DownloadBundle\Model\Database
-    factory: 'desarrolla2_download.factory.database_factory:getRemote'
+  shegroup.download.model.database.remote:
+    class: SheGroup\DownloadBundle\Model\Database
+    factory: 'shegroup.download.factory.database_factory:getRemote'
 
-  desarrolla2_download.model.database.local:
-    class: Desarrolla2\DownloadBundle\Model\Database
-    factory: 'desarrolla2_download.factory.database_factory:getLocal'
+  shegroup.download.model.database.local:
+    class: SheGroup\DownloadBundle\Model\Database
+    factory: 'shegroup.download.factory.database_factory:getLocal'
 
-  desarrolla2_download.model.directories:
-    class: Desarrolla2\DownloadBundle\Model\Database
-    factory: 'desarrolla2_download.factory.directory_factory:getDirectories'
+  shegroup.download.model.directories:
+    class: SheGroup\DownloadBundle\Model\Database
+    factory: 'shegroup.download.factory.directory_factory:getDirectories'
 
-  desarrolla2_download.handler.database_handler:
+  shegroup.download.handler.database_handler:
     public: true
-    class: Desarrolla2\DownloadBundle\Handler\DatabaseHandler
+    class: SheGroup\DownloadBundle\Handler\DatabaseHandler
     arguments:
-      - '%desarrolla2_download.user%'
-      - '%desarrolla2_download.host%'
-      - '@desarrolla2_download.model.database.remote'
-      - '@desarrolla2_download.model.database.local'
-      - '%desarrolla2_download.database.directory%'
-      - '%desarrolla2_download.database.max_local_db%'
-      - '%desarrolla2_download.database.only_structure%'
+      - '%shegroup.download.user%'
+      - '%shegroup.download.host%'
+      - '@shegroup.download.model.database.remote'
+      - '@shegroup.download.model.database.local'
+      - '%shegroup.download.database.directory%'
+      - '%shegroup.download.database.max_local_db%'
+      - '%shegroup.download.database.only_structure%'
     calls:
       - ['setLogger', ['@logger']]
-      - ['setDefaultTimeout', ['%desarrolla2_download.timeout%']]
+      - ['setDefaultTimeout', ['%shegroup.download.timeout%']]
 
-  desarrolla2_download.handler.directory_handler:
+  shegroup.download.handler.directory_handler:
     public: true
-    class: Desarrolla2\DownloadBundle\Handler\DirectoryHandler
+    class: SheGroup\DownloadBundle\Handler\DirectoryHandler
     arguments:
-      - '%desarrolla2_download.user%'
-      - '%desarrolla2_download.host%'
-      - '@desarrolla2_download.model.directories'
+      - '%shegroup.download.user%'
+      - '%shegroup.download.host%'
+      - '@shegroup.download.model.directories'
     calls:
       - ['setLogger', ['@logger']]
-      - ['setDefaultTimeout', ['%desarrolla2_download.timeout%']]
+      - ['setDefaultTimeout', ['%shegroup.download.timeout%']]
 
-  desarrolla2_download.command.download_command:
+  shegroup.download.command.download_command:
     class: 'Desarrolla2\DownloadBundle\Command\DownloadCommand'
     calls:
       - ['setContainer', ['@service_container']]
     tags:
       - { name: 'console.command' }
 
-  desarrolla2_download.command.load_command:
+  shegroup.download.command.load_command:
     class: 'Desarrolla2\DownloadBundle\Command\LoadCommand'
     calls:
       - ['setContainer', ['@service_container']]
     tags:
       - { name: 'console.command' }
 
-  desarrolla2_download.command.clean_command:
+  shegroup.download.command.clean_command:
     class: 'Desarrolla2\DownloadBundle\Command\CleanCommand'
     calls:
       - ['setContainer', ['@service_container']]

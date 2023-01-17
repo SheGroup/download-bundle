@@ -11,7 +11,7 @@
  * @author Daniel González <daniel@desarrolla2.com>
  */
 
-namespace Desarrolla2\DownloadBundle\Model;
+namespace SheGroup\DownloadBundle\Model;
 
 class Directory
 {

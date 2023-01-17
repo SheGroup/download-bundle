@@ -12,7 +12,7 @@ The bundle works using ssh connections so it is necessary that you have configur
 Download the Bundle.
 
 ```bash 
-composer require --dev "desarrolla2/download-bundle"
+composer require --dev "SheGroup/download-bundle"
 ```
 
 Enable the Bundle
@@ -27,7 +27,7 @@ class AppKernel extends Kernel
     {
         // enable it only for dev environment
         if (in_array($this->getEnvironment(), ['dev'], true)) {
-            $bundles[] = new Desarrolla2\DownloadBundle\DownloadBundle();
+            $bundles[] = new SheGroup\DownloadBundle\DownloadBundle();
         }
 
         // ...
@@ -45,6 +45,7 @@ You need put something like this in your config_dev.yml
 download:
     user: 'deploy_user'
     host: 'production_host_or_ip'
+    port: 22
 
     # optional parameter. use it if you want customize max proccess time
     timeout: 300

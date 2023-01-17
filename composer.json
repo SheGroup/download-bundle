@@ -1,10 +1,10 @@
 {
-  "name": "desarrolla2/download-bundle",
+  "name": "shegroup/download-bundle",
   "description": "This bundle provides download utilities for symfony2",
   "type": "symfony-bundle",
   "autoload": {
     "psr-4": {
-      "Desarrolla2\\DownloadBundle\\": "src/"
+      "SheGroup\\DownloadBundle\\": "src/"
     }
   },
   "require": {
@@ -24,6 +24,10 @@
     {
       "name": "Daniel González Cerviño",
       "email": "daniel@desarrolla2.com"
+    },
+    {
+      "name": "Carlos Garbajosa Barros",
+      "email": "carlos@damecode.com"
     }
   ]
 }

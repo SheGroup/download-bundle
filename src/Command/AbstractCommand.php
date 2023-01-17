@@ -11,11 +11,11 @@
  * @author Daniel González <daniel@desarrolla2.com>
  */
 
-namespace Desarrolla2\DownloadBundle\Command;
+namespace SheGroup\DownloadBundle\Command;
 
-use Desarrolla2\DownloadBundle\Handler\DatabaseHandler;
-use Desarrolla2\DownloadBundle\Handler\DirectoryHandler;
-use Desarrolla2\DownloadBundle\Model\Directory;
+use SheGroup\DownloadBundle\Handler\DatabaseHandler;
+use SheGroup\DownloadBundle\Handler\DirectoryHandler;
+use SheGroup\DownloadBundle\Model\Directory;
 use Desarrolla2\Timer\Formatter\Human;
 use Desarrolla2\Timer\Timer;
 use Symfony\Component\Console\Command\Command;
@@ -42,9 +42,9 @@ abstract class AbstractCommand extends Command implements ContainerAwareInterfac
     protected function finalize(OutputInterface $output)
     {
         /** @var DatabaseHandler $databaseHandler */
-        $databaseHandler = $this->container->get('desarrolla2_download.handler.database_handler');
+        $databaseHandler = $this->container->get('shegroup.download.handler.database_handler');
         /** @var DirectoryHandler $handler */
-        $directoryHandler = $this->container->get('desarrolla2_download.handler.directory_handler');
+        $directoryHandler = $this->container->get('shegroup.download.handler.directory_handler');
         $info = [['database size', $this->formatSize($databaseHandler->getFileSize())],];
 
         $directory = new Directory('', $databaseHandler->getDirectory());

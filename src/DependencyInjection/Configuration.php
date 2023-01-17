@@ -11,7 +11,7 @@
  * @author Daniel González <daniel@desarrolla2.com>
  */
 
-namespace Desarrolla2\DownloadBundle\DependencyInjection;
+namespace SheGroup\DownloadBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -35,6 +35,7 @@ class Configuration implements ConfigurationInterface
             ->children()
                 ->scalarNode('user')->isRequired()->end()
                 ->scalarNode('host')->isRequired()->end()
+                ->scalarNode('port')->isRequired()->end()
                 ->scalarNode('timeout')->defaultNull()->end()
                 ->arrayNode('database')
                 ->isRequired()

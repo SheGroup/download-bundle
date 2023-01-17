@@ -11,9 +11,9 @@
  * @author Daniel González <daniel@desarrolla2.com>
  */
 
-namespace Desarrolla2\DownloadBundle\Factory;
+namespace SheGroup\DownloadBundle\Factory;
 
-use Desarrolla2\DownloadBundle\Model\Directory;
+use SheGroup\DownloadBundle\Model\Directory;
 
 class DirectoryFactory
 {

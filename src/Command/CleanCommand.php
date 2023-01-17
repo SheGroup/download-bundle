@@ -11,9 +11,9 @@
  * @author Daniel González <daniel@desarrolla2.com>
  */
 
-namespace Desarrolla2\DownloadBundle\Command;
+namespace SheGroup\DownloadBundle\Command;
 
-use Desarrolla2\DownloadBundle\Handler\DatabaseHandler;
+use SheGroup\DownloadBundle\Handler\DatabaseHandler;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Logger\ConsoleLogger;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -28,10 +28,10 @@ class CleanCommand extends AbstractCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $handler = $this->container->get('desarrolla2_download.handler.database_handler');
+        $handler = $this->container->get('shegroup.download.handler.database_handler');
         $handler->setLogger(new ConsoleLogger($output));
         /** @var DatabaseHandler $handler */
-        $handler = $this->container->get('desarrolla2_download.handler.database_handler');
+        $handler = $this->container->get('shegroup.download.handler.database_handler');
         $files = [];
         $directory = $handler->getDirectory();
 
@@ -57,7 +57,7 @@ class CleanCommand extends AbstractCommand
                 'path' => $file->getRealPath(),
             ];
         }
-        $filesToKeep = $this->container->getParameter('desarrolla2_download.database.max_local_db');
+        $filesToKeep = $this->container->getParameter('shegroup.download.database.max_local_db');
 
         $numberOfFiles = count($files);
         $output->writeln(sprintf(' - found %d databases', $numberOfFiles));
