@@ -47,21 +47,21 @@ services:
       - ['setDefaultTimeout', ['%shegroup.download.timeout%']]
 
   shegroup.download.command.download_command:
-    class: 'Desarrolla2\DownloadBundle\Command\DownloadCommand'
+    class: 'SheGroup\DownloadBundle\Command\DownloadCommand'
     calls:
       - ['setContainer', ['@service_container']]
     tags:
       - { name: 'console.command' }
 
   shegroup.download.command.load_command:
-    class: 'Desarrolla2\DownloadBundle\Command\LoadCommand'
+    class: 'SheGroup\DownloadBundle\Command\LoadCommand'
     calls:
       - ['setContainer', ['@service_container']]
     tags:
       - { name: 'console.command' }
 
   shegroup.download.command.clean_command:
-    class: 'Desarrolla2\DownloadBundle\Command\CleanCommand'
+    class: 'SheGroup\DownloadBundle\Command\CleanCommand'
     calls:
       - ['setContainer', ['@service_container']]
     tags:
